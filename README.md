@@ -1,1 +1,2 @@
-### Project 1 // 15.09.22
+## JAVA 2022
+### Project 1
