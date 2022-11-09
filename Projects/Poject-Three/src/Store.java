@@ -4,20 +4,12 @@ public class Store { ArrayList<Watch> list = new ArrayList<>(); HashMap<String, 
 
     public Store() { Collections.addAll(list, new Watch("'Casio'", 220), new Watch("'Philipp Plein'", 75000, 10, 36), new Second_Watch("'Casio'", 2500), new Second_Watch("'Patek Philippe'", 95000, 22, 5, 36) ); }
 
-    public String getBiggestPrice() {
-        Comparator<Watch> comparator = Comparator.comparingInt(Watch::getPrice);
-        return Collections.max(list, comparator).printBiggestPrice();
-    }
+    public String getBiggestPrice() { Comparator<Watch> comparator = Comparator.comparingInt(Watch::getPrice); return Collections.max(list, comparator).printBiggestPrice(); }
 
     public String getMostPopularBrand() {
-        for (Watch obj : list) {
-            if (HashMap.containsKey(obj.getBrand())) { int count = HashMap.get(obj.getBrand()); HashMap.put(obj.getBrand(), ++count); } else HashMap.put(obj.getBrand(), 1); }
-        int max = 0; for (Watch o : list) { int objc = HashMap.get(o.getBrand()); if (objc > max) max = objc; }
-        String answer = "N/A"; for (Watch o: list) { if (HashMap.get(o.getBrand()) == max) answer = o.getBrand(); } return answer;
+        for (Watch item : list) { if (HashMap.containsKey(item.getBrand())) { int count = HashMap.get(item.getBrand()); HashMap.put(item.getBrand(), ++count); } else HashMap.put(item.getBrand(), 1); }
+        int max = 0; for (Watch o : list) { int itemc = HashMap.get(o.getBrand()); if (itemc > max) max = itemc; }
+        String reaction = "N/A"; for (Watch o: list) { if (HashMap.get(o.getBrand()) == max) reaction = o.getBrand(); } return reaction;
     }
 
-        public void printAllBrands() {
-            for (Watch o : list) { SortedSet.add(o.getBrand()); }
-            SortedSet.forEach(System.out::println);
-        }
-}
+    public void printAllBrands() { for (Watch o : list) { SortedSet.add(o.getBrand()); } SortedSet.forEach(System.out::println); } }
